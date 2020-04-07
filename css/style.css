@@ -10,6 +10,10 @@ img {
   border-radius: 50%;
 }
 
+ul li {
+  list-style-type: none;
+}
+
 /* sfondo posteriore */
 #sfondo {
   height: 100vh;
@@ -262,44 +266,24 @@ main {
 
 .destinatario ul {
   float: left;
-  min-width: 20px;
-  max-width: 60%;
 }
 
 .mittente ul {
   float: right;
-  min-width: 20px;
-  max-width: 60%;
 }
 
-.destinatario {
-  width: 100%;
-  min-height: 50px;
-}
-/*
 .destinatario, .mittente {
+  min-height: 50px;
   width: 100%;
+  display: table;
+  content: "";
+  clear: both;
 }
-
-.destinatario ul {
-  max-width: 50%;
-}
-
-.msg-ricevuto, .msg-inviato {
-  padding: 15px;
-  border-radius: 5px;
-} */
 
 .msg-ricevuto {
-
   background-color: white;
-}
-
-ul li {
-  list-style-type: none;
 }
 
 .msg-inviato {
   background-color: #D5F9BA;
-
 }
