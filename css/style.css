@@ -250,7 +250,7 @@ main {
 .sezione-testo {
   height: calc(100% - 70px - 70px);
   overflow-y: scroll;
-  background: lightgrey;
+  background-image: url('../img/wp.jpg');
 }
 
 .contenitore-testo {
@@ -262,19 +262,24 @@ main {
 .msg-ricevuto, .msg-inviato {
   padding: 15px;
   border-radius: 5px;
+  margin-bottom: 5px;
 }
 
-.destinatario ul {
+.destinatario div {
   float: left;
+  max-width: 50%;
 }
 
-.mittente ul {
+.mittente div {
   float: right;
+  max-width: 50%;
 }
 
 .destinatario, .mittente {
-  min-height: 50px;
   width: 100%;
+}
+
+.clear::after {
   display: table;
   content: "";
   clear: both;

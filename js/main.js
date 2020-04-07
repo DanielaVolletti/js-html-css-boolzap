@@ -1,10 +1,15 @@
 $(document).ready(function(){
 
+
   $('.invio').click(function(){
-    var contenitoreInviati = $('.mittente ul');
+    var contenitoreInviati = $('.contenitore-testo');
     var msgInviato = $('.scrivi-msg input').val();
     console.log(msgInviato);
-    contenitoreInviati.append("<li class='msg-inviato'>" + msgInviato + "</li>");
+    contenitoreInviati.append("<div class='mittente'>"+
+                      "<div class='msg-inviato'>" + msgInviato + "</div>"+
+                  "</div>");
+
+    $('.scrivi-msg input').val("");
   })
 
 });
