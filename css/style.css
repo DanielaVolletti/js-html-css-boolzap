@@ -248,3 +248,58 @@ main {
   overflow-y: scroll;
   background: lightgrey;
 }
+
+.contenitore-testo {
+  width: 90%;
+  height: 90%;
+  margin: 5%;
+}
+
+.msg-ricevuto, .msg-inviato {
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.destinatario ul {
+  float: left;
+  min-width: 20px;
+  max-width: 60%;
+}
+
+.mittente ul {
+  float: right;
+  min-width: 20px;
+  max-width: 60%;
+}
+
+.destinatario {
+  width: 100%;
+  min-height: 50px;
+}
+/*
+.destinatario, .mittente {
+  width: 100%;
+}
+
+.destinatario ul {
+  max-width: 50%;
+}
+
+.msg-ricevuto, .msg-inviato {
+  padding: 15px;
+  border-radius: 5px;
+} */
+
+.msg-ricevuto {
+
+  background-color: white;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+.msg-inviato {
+  background-color: #D5F9BA;
+
+}
