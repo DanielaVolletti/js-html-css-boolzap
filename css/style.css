@@ -48,12 +48,6 @@ main {
   height: 100%;
 }
 
-/* sezione chat destra */
-#sezione-chat-destra {
-  width: 63%;
-  height: 100%;
-}
-
 /* regole specifiche chat sinistra */
 /* parte fissa */
 #mio-profilo {
@@ -170,11 +164,87 @@ main {
 }
 
 .container-chat span {
-  font-size: 12px;  
+  font-size: 12px;
 }
 
 .container-chat h2 {
   font-weight: lighter;
   font-size: 17px;
   padding-bottom: 5px;
+}
+
+/* sezione chat destra */
+#sezione-chat-destra {
+  width: 63%;
+  height: 100%;
+}
+
+/* parte superiore */
+.header-chat {
+  height: 70px;
+  width: 100%;
+  background-color: #EAEAEA;
+  border-left: solid 1px #B1B1B1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+}
+
+.dati-chat {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.dati-chat img {
+  height: 80%;
+  margin-right: 15px;
+}
+
+.dati-chat h2 {
+  font-weight: lighter;
+  font-size: 17px;
+  padding-bottom: 5px;
+}
+
+.dati-chat h5 {
+  font-weight: lighter;
+  font-size: 14px;
+  color: #6B7376;
+}
+
+.iconcine-header-chat i {
+  color: #B6B9BB;
+  font-size: 22px;
+  padding-right: 15px;
+}
+
+.scrivi-msg {
+  height: 70px;
+  width: 100%;
+  background-color: #EAEAEA;
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  justify-content: space-around;
+}
+
+.scrivi-msg i {
+  font-size: 25px;
+  color: #6B7376;
+}
+
+.scrivi-msg input {
+  width: 80%;
+  height: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.sezione-testo {
+  height: calc(100% - 70px - 70px);
+  overflow-y: scroll;
+  background: lightgrey;
 }
