@@ -134,7 +134,7 @@ main {
 #sezione-chat {
   width: 100%;
   height: calc(100% - 70px - 70px - 50px);
-  overflow-y: scroll;
+  overflow-y: auto;
   background-color: white;
 }
 
@@ -249,7 +249,7 @@ main {
 
 .sezione-testo {
   height: calc(100% - 70px - 70px);
-  overflow-y: scroll;
+  overflow-y: auto;
   background-image: url('../img/wp.jpg');
 }
 
@@ -267,16 +267,12 @@ main {
 
 .destinatario div {
   float: left;
-  max-width: 50%;
+  max-width: 60%;
 }
 
 .mittente div {
   float: right;
-  max-width: 50%;
-}
-
-.destinatario, .mittente {
-  width: 100%;
+  max-width: 60%;
 }
 
 .clear::after {
