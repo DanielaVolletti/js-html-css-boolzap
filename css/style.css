@@ -1,0 +1,180 @@
+/* regole generali */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+}
+
+img {
+  border-radius: 50%;
+}
+
+/* sfondo posteriore */
+#sfondo {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+
+#sfondo-sopra {
+  height: 20%;
+  width: 100%;
+  background-color: #009688;
+}
+
+#sfondo-sotto {
+  height: 80%;
+  width: 100%;
+  background-color: #DADBD3;
+}
+
+/* corpo centrale chat */
+main {
+  position: absolute;
+  top: 5%;
+  left: 10%;
+  right: 10%;
+  bottom: 5%;
+  height: 90%;
+  width: 80%;
+  z-index: 1;
+  display: flex;
+}
+
+/* sezione chat sinistra */
+#sezione-chat-sinistra {
+  width: 37%;
+  height: 100%;
+}
+
+/* sezione chat destra */
+#sezione-chat-destra {
+  width: 63%;
+  height: 100%;
+}
+
+/* regole specifiche chat sinistra */
+/* parte fissa */
+#mio-profilo {
+  height: 70px;
+  width: 100%;
+  background-color: #EAEAEA;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4%;
+}
+
+#mio-profilo img {
+  height: 80%;
+}
+
+#icone-user i {
+  font-size: 22px;
+  color: #B1B1B1;
+  padding-right: 15px;
+}
+
+#notifiche {
+  height: 70px;
+  width: 100%;
+  background-color: #8EDAFC;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+#notifiche i {
+  font-size: 22px;
+  background: white;
+  border-radius: 50%;
+  padding: 14px 10px;
+  color: #8EDAFC;
+  margin-right: 10px;
+}
+
+#notifiche h5 {
+  font-size: 16px;
+  font-weight: lighter;
+}
+
+#notifiche a {
+  font-size: 15px;
+  color: #4F7485;
+}
+
+#cerca-chat {
+  height: 50px;
+  width: 100%;
+  background-color: #FAFAFA;
+  padding: 8px;
+}
+
+.contenitore-cerca {
+  border: 1px solid #F5F5F5;
+  height: 100%;
+  display: flex;
+  align-items: center;
+
+}
+
+#cerca-chat i {
+  background: white;
+  width: 10%;
+  height: 100%;
+  padding: 10px 30px 10px 15px;
+  color: #B6B9BB;
+}
+
+#cerca-chat input {
+  width: 90%;
+  height: 100%;
+  border: none;
+}
+
+#sezione-chat {
+  width: 100%;
+  height: calc(100% - 70px - 70px - 50px);
+  overflow-y: scroll;
+  background-color: white;
+}
+
+.container-chat {
+  height: 80px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #F5F5F5;
+  padding: 0 20px;
+  position: relative;
+}
+
+.container-chat img{
+  height: 80%;
+  margin-right: 15px;
+}
+
+.container-chat span {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+}
+
+.specifiche-chat p, .container-chat span {
+  color: #B6B9BB;
+}
+
+.specifiche-chat p {
+  font-size: 14px;
+}
+
+.container-chat span {
+  font-size: 12px;  
+}
+
+.container-chat h2 {
+  font-weight: lighter;
+  font-size: 17px;
+  padding-bottom: 5px;
+}
