@@ -10,10 +10,6 @@ img {
   border-radius: 50%;
 }
 
-ul li {
-  list-style-type: none;
-}
-
 /* sfondo posteriore */
 #sfondo {
   height: 100vh;
