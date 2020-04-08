@@ -30,14 +30,15 @@ $(document).ready(function(){
   });
 
   //gestisco evento ricerca su tastiera
-  $('.contenitore-cerca input').keypress(function(){
+  $('.contenitore-cerca input').keyup(function(){
+
     // salvo input utente
     var inputUser = $('.contenitore-cerca input').val();
 
     // converto caratteri inseriti in minuscoli
     var inputUserMin = inputUser.toLowerCase();
 
-    console.log(inputUserMin);
+    console.log('input inserito', inputUserMin);
 
     // seleziono tutti i blocchi di contatto e ciclo tra di essi
     $('.container-chat').each(function() {
@@ -53,6 +54,7 @@ $(document).ready(function(){
       console.log(nomeContattoMin);
 
       // verifico che il nome degli utenti includa ciò che ha inserito l'utente nella ricerca e quindi rendo visibile
+
       if(nomeContattoMin.includes(inputUserMin)){
         $(this).show();
       } else {
