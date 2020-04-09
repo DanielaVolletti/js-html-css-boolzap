@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
   // salvo in variabile dove andrò ad aggiungere ulteriori messaggi
-  var contenitoreInviati = $('.contenitore-testo');
+  var contenitoreInviati;
 
   // salvo in una variabile il pulsante invio
   var invio = $('.invio');
@@ -101,6 +101,53 @@ $(document).ready(function(){
 
   */
 
+  // faccio apparire solo cha
+  $('.container-chat').click(function() {
+    var elementoSelezionato = $(this);
+
+    // recupero valore attributo della chat
+    var mioAttributo = elementoSelezionato.data('conversazione');
+
+    console.log('posizione chat' + mioAttributo);
+
+    // tolgo classe active a tutte le finestre di chat destra
+    $('.contenitore-testo').removeClass('active');
+
+    // ciclo i contenitori di destra
+    $('.contenitore-testo').each(function() {
+
+      // this è l'elemento iterato attuale
+      var mioAttributoDue = $(this).data('conversazione');
+
+      console.log('posizione conversazione' +
+      mioAttributoDue);
+
+      // do classe active solo all'elemento con attributo uguale
+      if (mioAttributo == mioAttributoDue) {
+        console.log("elemento trovato");
+        $(this).addClass("active");
+        contenitoreInviati = $(this);
+      }
+    });
+
+      // con eq io recupero l'elemento tramite indice, ma la numerazine parte da 0 non da 1
+      /*
+      $('.contenitore-testo').eq(mioAttributo - 1).addClass('active');
+      */
+
+
+  });
+
+
+
+
+  //Click sul contatto mostra la conversazione del contatto cliccato
+    // click sul contatto che ha data-attr che corrisponde a stesso data-attr in chat
+
+    // salvo il valore dell'attr e lo usso per dire quale chat è attiva
+
+
+  // è possibile inserire nuovi messaggi per ogni conversazione [attiva]
 
 
 

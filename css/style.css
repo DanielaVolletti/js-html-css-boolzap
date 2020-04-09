@@ -253,6 +253,11 @@ main {
   width: 90%;
   height: 90%;
   margin: 5%;
+  display: none;
+}
+
+.active {
+  display: block;
 }
 
 .msg-ricevuto, .msg-inviato {
