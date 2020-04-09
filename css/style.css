@@ -266,14 +266,18 @@ main {
   margin-bottom: 5px;
 }
 
-.destinatario div {
+.destinatario .msg-ricevuto {
   float: left;
   max-width: 60%;
 }
 
-.mittente div {
+.mittente .msg-inviato {
   float: right;
   max-width: 60%;
+}
+
+.destinatario, .mittente {
+  position: relative;
 }
 
 .clear::after {
@@ -288,4 +292,23 @@ main {
 
 .msg-inviato {
   background-color: #D5F9BA;
+}
+
+/* dropdown cancella */
+.drop-cancella {
+  background-color: white;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.drop-cancella h6 {
+  font-size: 14px;
+  font-weight: lighter;
+}
+
+.delete {
+  padding-top: 15px;
 }
