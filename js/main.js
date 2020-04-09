@@ -65,6 +65,7 @@ $(document).ready(function(){
 
   });
 
+
 /*
   //gestisco evento ricerca con CLICK su icona ricerca
   $('.search').click(function(){
@@ -101,9 +102,24 @@ $(document).ready(function(){
 
   */
 
-  // faccio apparire solo cha
+  // faccio apparire solo chat attiva
   $('.container-chat').click(function() {
+
+    // seleziono la chat corrente
     var elementoSelezionato = $(this);
+
+    // seleziono il nome nella sezione di sinistra
+    var nomeChat = elementoSelezionato.find('h2').text();
+
+    // associo alla chat di destra il nome della chat su cui clicco
+    $('.dati-chat').find('h2').text(nomeChat);
+
+    // seleziono l'immagine di sinistra
+    var imgChat = elementoSelezionato.find('img').attr('src');
+    console.log(imgChat);
+
+    // associo alla chat di destra l'immagine della chat su cui clicco
+    $('.dati-chat').find('img').attr('src', imgChat);
 
     // recupero valore attributo della chat
     var mioAttributo = elementoSelezionato.data('conversazione');
@@ -128,12 +144,10 @@ $(document).ready(function(){
         $(this).addClass("active");
         contenitoreInviati = $(this);
       }
+
+
     });
 
-      // con eq io recupero l'elemento tramite indice, ma la numerazine parte da 0 non da 1
-      /*
-      $('.contenitore-testo').eq(mioAttributo - 1).addClass('active');
-      */
 
 
   });
