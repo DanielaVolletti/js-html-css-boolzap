@@ -142,6 +142,7 @@ main {
   border-bottom: 1px solid #F5F5F5;
   padding: 0 20px;
   position: relative;
+  cursor: pointer;
 }
 
 .container-chat img{
@@ -153,6 +154,7 @@ main {
   position: absolute;
   top: 20px;
   right: 10px;
+  font-size: 12px;
 }
 
 .specifiche-chat p, .container-chat span {
@@ -161,10 +163,6 @@ main {
 
 .specifiche-chat p {
   font-size: 14px;
-}
-
-.container-chat span {
-  font-size: 12px;
 }
 
 .container-chat h2 {
@@ -247,6 +245,15 @@ main {
   height: calc(100% - 70px - 70px);
   overflow-y: auto;
   background-image: url('../img/wp.jpg');
+  position: relative;
+}
+
+.clicca-chat {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  color: #6B7376;
 }
 
 .contenitore-testo {
@@ -264,11 +271,15 @@ main {
   padding: 15px;
   border-radius: 5px;
   margin-bottom: 5px;
+  background-color: #D5F9BA;
+  position: relative;
 }
 
 .destinatario .msg-ricevuto {
   float: left;
   max-width: 60%;
+  background-color: white;
+  position: relative;
 }
 
 .mittente .msg-inviato {
@@ -284,16 +295,6 @@ main {
   display: table;
   content: "";
   clear: both;
-}
-
-.msg-ricevuto {
-  background-color: white;
-  position: relative;
-}
-
-.msg-inviato {
-  background-color: #D5F9BA;
-  position: relative;
 }
 
 .msg-ricevuto i, .msg-inviato i, .ora-msg {
@@ -347,6 +348,7 @@ main {
 
 .drop-attivo {
   display: block;
+  z-index: 1;
 }
 
 .drop-cancella-inviato h6 {
@@ -357,4 +359,196 @@ main {
 .delete {
   padding-top: 15px;
   cursor: pointer;
+}
+
+
+@media screen and (max-width: 400px) {
+
+  /* sezione profilo */
+  #mio-profilo {
+    height: 40px;
+  }
+
+  #icone-user i, #notifiche i {
+    font-size: 12px;
+  }
+
+  #icone-user i {
+    padding-right: 5px;
+  }
+
+  /* sezione notifiche */
+  #notifiche {
+    height: 40px;
+    padding: 0 5px;
+  }
+
+  #notifiche i {
+    padding: 5px 3px;
+    margin-right: 5px;
+  }
+
+  #notifiche h5 {
+    font-size: 8px;
+  }
+
+  #notifiche a {
+    font-size: 7px;
+  }
+
+  /* sezione search */
+  #cerca-chat {
+    height: 37px;
+  }
+
+  #cerca-chat i {
+    font-size: 12px;
+    padding: 4px 15px 0px 3px;
+  }
+
+  #cerca-chat input {
+    font-size: 6px;
+  }
+
+  /* sezione chat */
+  #sezione-chat {
+    height: calc(100% - 40px - 40px - 37px);
+  }
+
+  .container-chat {
+    height: 40px;
+    padding: 0px 5px;
+  }
+
+  .specifiche-chat p {
+    font-size: 7px;
+  }
+
+  .container-chat h2 {
+    font-size: 10px;
+    padding-bottom: 2px;
+  }
+
+  .container-chat span {
+    font-size: 6px;
+    top: 7px;
+    right: 2px;
+  }
+
+  /* header chat destra */
+  .header-chat {
+    height: 40px;
+    padding: 0px 5px;
+  }
+
+  .dati-chat img {
+    margin-right: 5px;
+  }
+
+  .dati-chat h2{
+    font-size: 10px;
+  }
+
+  .dati-chat h5 {
+    font-size: 7px;
+  }
+
+  .iconcine-header-chat i {
+    font-size: 12px;
+    padding-right: 5px;
+  }
+
+  .msg-ricevuto, .msg-inviato {
+    padding: 5px;
+  }
+
+  .msg-ricevuto span:nth-child(1), .msg-inviato span:nth-child(1) {
+    font-size: 12px;
+  }
+
+  .ora-msg {
+    font-size: 5px;
+    bottom: 0px;
+    right: 3px;
+  }
+
+  /* sezione chat destra */
+  .sezione-testo {
+    height: calc(100% - 40px - 40px);
+  }
+
+  .clicca-chat {
+    font-size: 12px;
+  }
+
+  /* dropbox */
+  .drop-cancella {
+    top: 30px;
+    padding: 5px;
+  }
+
+  .drop-cancella-inviato {
+    top: 30px;
+    padding: 5px;
+  }
+
+  .drop-cancella-inviato h6, .drop-cancella h6 {
+    font-size: 10px;
+  }
+
+  .msg-ricevuto i, .msg-inviato i {
+    font-size: 10px;
+  }
+
+  .delete {
+    padding-top: 5px;
+  }
+
+  /* parte scrivi messaggio */
+  .scrivi-msg {
+    height: 40px;
+    padding: 7px 5px;
+  }
+
+  .scrivi-msg input {
+    font-size: 10px;
+  }
+
+  .scrivi-msg i {
+    font-size: 12px;
+  }
+
+}
+
+/* media query a partire da versione tablet */
+@media screen and (min-width: 401px) and (max-width: 768px) {
+
+  /* blocco sinistra */
+  #icone-user i, #notifiche i {
+    font-size: 20px;
+  }
+
+  #notifiche h5 {
+    font-size: 14px;
+  }
+
+  #notifiche a {
+    font-size: 12px;
+  }
+
+  #cerca-chat input {
+    font-size: 12px;
+  }
+
+  .container-chat span {
+    font-size: 10px;
+  }
+
+  .specifiche-chat p {
+    font-size: 12px;
+  }
+
+
+
+
 }

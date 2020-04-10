@@ -141,6 +141,9 @@ $(document).ready(function(){
   // faccio apparire solo chat attiva al click su corrispondente sinistra
   $('.container-chat').click(function() {
 
+    // rimuovo "clicca su una chat"
+    $('.clicca-chat').hide();
+
     // seleziono la chat corrente
     var elementoSelezionato = $(this);
 
@@ -156,6 +159,12 @@ $(document).ready(function(){
 
     // associo alla chat di destra l'immagine della chat su cui clicco
     $('.dati-chat').find('img').attr('src', imgChat);
+
+    // seleziono il nome nella sezione di sinistra
+    var oraChat = elementoSelezionato.find('span').text();
+
+    // associo alla chat di destra il nome della chat su cui clicco
+    $('.dati-chat').find('h5').text('Ultimo accesso oggi alle ' + oraChat);
 
     // recupero valore attributo della chat
     var mioAttributo = elementoSelezionato.data('conversazione');
