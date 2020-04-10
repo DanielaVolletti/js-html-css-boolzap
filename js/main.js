@@ -144,34 +144,40 @@ $(document).ready(function(){
         $(this).addClass("active");
         contenitoreInviati = $(this);
       }
-
     });
-
 
   });
 
+  $('.contenitore-testo').on("click", ".msg-ricevuto i",
+     function () {
+       if(!$(this).parents('.destinatario').find('.drop-cancella').hasClass('drop-attivo')){
+         $(this).parents('.destinatario').find('.drop-cancella').addClass('drop-attivo');
+       } else if($(this).parents('.destinatario').find('.drop-cancella').hasClass('drop-attivo')){
+         $(this).parents('.destinatario').find('.drop-cancella').removeClass('drop-attivo');
+       }
+     }
+  );
 
-  $('.msg-ricevuto i').click(function () {
-    console.log('sono dentro il click chevron ricevuto');
-    if(!$(this).parents('.destinatario').find('.drop-cancella').hasClass('drop-attivo')){
-      $(this).parents('.destinatario').find('.drop-cancella').addClass('drop-attivo');
-    } else if($(this).parents('.destinatario').find('.drop-cancella').hasClass('drop-attivo')){
-      $(this).parents('.destinatario').find('.drop-cancella').removeClass('drop-attivo');
-    }
+  $('.contenitore-testo').on("click", ".msg-inviato i",
+     function () {
+       if(!$(this).parents('.mittente').find('.drop-cancella-inviato').hasClass('drop-attivo')){
+         $(this).parents('.mittente').find('.drop-cancella-inviato').addClass('drop-attivo');
+       } else if($(this).parents('.mittente').find('.drop-cancella-inviato').hasClass('drop-attivo')){
+         $(this).parents('.mittente').find('.drop-cancella-inviato').removeClass('drop-attivo');
+       }
+     }
+  );
 
 
-  })
-
-  $('.msg-inviato i').click(function () {
-    console.log('sono dentro il click chevron ricevuto');
-    if(!$(this).parents('.mittente').find('.drop-cancella-inviato').hasClass('drop-attivo')){
-      $(this).parents('.mittente').find('.drop-cancella-inviato').addClass('drop-attivo');
-    } else if($(this).parents('.mittente').find('.drop-cancella-inviato').hasClass('drop-attivo')){
-      $(this).parents('.mittente').find('.drop-cancella-inviato').removeClass('drop-attivo');
-    }
-
-
-  })
-
+  $('.contenitore-testo').on("click", ".delete",
+     function () {
+       if($(this).parents('.destinatario')){
+         $(this).parents('.destinatario').hide();
+       }
+       if($(this).parents('.mittente')){
+         $(this).parents('.mittente').hide();
+       }
+     }
+  );
 
 });
