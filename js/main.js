@@ -16,7 +16,7 @@ $(document).ready(function(){
     console.log(msgInviato);
 
     // aggiungo  ciò che ho salvato sotto i msg inviati
-    contenitoreInviati.append("<div class='mittente clear'><div class='msg-inviato'>" + msgInviato + "</div></div>");
+    contenitoreInviati.append('<div class="mittente clear"><div class="msg-inviato"><span>' + msgInviato + '</span><i class="fas fa-chevron-down"></i><span class="ora-msg">15:40</span></div><div class="drop-cancella-inviato"><div class="info"><h6>Info messaggio</h6></div><div class="delete"><h6>Cancella il messaggio</h6></div></div></div>');
 
     // pulisco input dopo aver cliccato
     $('.scrivi-msg input').val("");
@@ -24,7 +24,7 @@ $(document).ready(function(){
     // dopo un secondo appare la risposta automatica ok
     setTimeout(risposta, 1000);
     function risposta() {
-      contenitoreInviati.append('<div class="destinatario clear"><div class="msg-ricevuto"> Ok </div></div>')
+      contenitoreInviati.append('<div class="destinatario clear"><div class="msg-ricevuto"><span>Ok</span><i class="fas fa-chevron-down"></i><span class="ora-msg">15:40</span></div><div class="drop-cancella"><div class="info"><h6>Info messaggio</h6></div><div class="delete"><h6>Cancella il messaggio</h6></div></div></div>')
     }
 
   });
@@ -102,7 +102,7 @@ $(document).ready(function(){
 
   */
 
-  // faccio apparire solo chat attiva
+  // faccio apparire solo chat attiva al click su corrispondente sinistra
   $('.container-chat').click(function() {
 
     // seleziono la chat corrente
@@ -145,25 +145,33 @@ $(document).ready(function(){
         contenitoreInviati = $(this);
       }
 
-
     });
-
 
 
   });
 
 
+  $('.msg-ricevuto i').click(function () {
+    console.log('sono dentro il click chevron ricevuto');
+    if(!$(this).parents('.destinatario').find('.drop-cancella').hasClass('drop-attivo')){
+      $(this).parents('.destinatario').find('.drop-cancella').addClass('drop-attivo');
+    } else if($(this).parents('.destinatario').find('.drop-cancella').hasClass('drop-attivo')){
+      $(this).parents('.destinatario').find('.drop-cancella').removeClass('drop-attivo');
+    }
 
 
-  //Click sul contatto mostra la conversazione del contatto cliccato
-    // click sul contatto che ha data-attr che corrisponde a stesso data-attr in chat
+  })
 
-    // salvo il valore dell'attr e lo usso per dire quale chat è attiva
+  $('.msg-inviato i').click(function () {
+    console.log('sono dentro il click chevron ricevuto');
+    if(!$(this).parents('.mittente').find('.drop-cancella-inviato').hasClass('drop-attivo')){
+      $(this).parents('.mittente').find('.drop-cancella-inviato').addClass('drop-attivo');
+    } else if($(this).parents('.mittente').find('.drop-cancella-inviato').hasClass('drop-attivo')){
+      $(this).parents('.mittente').find('.drop-cancella-inviato').removeClass('drop-attivo');
+    }
 
 
-  // è possibile inserire nuovi messaggi per ogni conversazione [attiva]
-
-
+  })
 
 
 });

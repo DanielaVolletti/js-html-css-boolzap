@@ -288,10 +288,35 @@ main {
 
 .msg-ricevuto {
   background-color: white;
+  position: relative;
 }
 
 .msg-inviato {
   background-color: #D5F9BA;
+  position: relative;
+}
+
+.msg-ricevuto i, .msg-inviato i, .ora-msg {
+  color: #B6B9BB;
+}
+
+.msg-ricevuto i:hover, .msg-inviato i:hover {
+  cursor: pointer;
+}
+
+.msg-ricevuto:hover i, .msg-inviato:hover i {
+  display: inline;
+}
+
+.msg-ricevuto i, .msg-inviato i {
+  display: none;
+}
+
+.ora-msg {
+  font-size: 9px;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
 }
 
 /* dropdown cancella */
@@ -302,6 +327,7 @@ main {
   left: 0;
   padding: 15px;
   border-radius: 5px;
+  display: none;
 }
 
 .drop-cancella h6 {
@@ -309,6 +335,26 @@ main {
   font-weight: lighter;
 }
 
+.drop-cancella-inviato {
+  background-color: white;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  padding: 15px;
+  border-radius: 5px;
+  display: none;
+}
+
+.drop-attivo {
+  display: block;
+}
+
+.drop-cancella-inviato h6 {
+  font-size: 14px;
+  font-weight: lighter;
+}
+
 .delete {
   padding-top: 15px;
+  cursor: pointer;
 }
