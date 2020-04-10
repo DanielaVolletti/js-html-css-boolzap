@@ -29,6 +29,42 @@ $(document).ready(function(){
 
   });
 
+  // invio messaggio con tasto invio
+  msgScritto.keyup(function(enter){
+
+    // salvo ciò che ha scritto l'utente
+    var msgInviato = msgScritto.val();
+    console.log(msgInviato);
+
+    // alla pressione del tasto invio, invio il messaggio
+    var code = enter.keyCode;
+    if(code == 13){
+      // aggiungo  ciò che ho salvato sotto i msg inviati
+      contenitoreInviati.append('<div class="mittente clear"><div class="msg-inviato"><span>' + msgInviato + '</span><i class="fas fa-chevron-down"></i><span class="ora-msg">15:40</span></div><div class="drop-cancella-inviato"><div class="info"><h6>Info messaggio</h6></div><div class="delete"><h6>Cancella il messaggio</h6></div></div></div>');
+
+      // pulisco input dopo aver cliccato
+      $('.scrivi-msg input').val("");
+
+      // dopo un secondo appare la risposta automatica ok
+      setTimeout(risposta, 1000);
+      function risposta() {
+        contenitoreInviati.append('<div class="destinatario clear"><div class="msg-ricevuto"><span>Ok</span><i class="fas fa-chevron-down"></i><span class="ora-msg">15:40</span></div><div class="drop-cancella"><div class="info"><h6>Info messaggio</h6></div><div class="delete"><h6>Cancella il messaggio</h6></div></div></div>')
+      }
+    }
+
+  });
+
+  // cambio il microfono in aereoplano quando sto scrivendo
+  $('.scrivi-msg input').focusin(function(){
+    invio.removeClass('fa-microphone');
+    invio.addClass('fa-paper-plane');
+  });
+  $('.scrivi-msg input').focusout(function(){
+    invio.removeClass('fa-paper-plane');
+    invio.addClass('fa-microphone');
+  });
+
+
   //gestisco evento ricerca su tastiera
   $('.contenitore-cerca input').keyup(function(){
 
