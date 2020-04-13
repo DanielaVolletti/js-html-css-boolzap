@@ -310,7 +310,9 @@ main {
 }
 
 .msg-ricevuto i, .msg-inviato i {
+  font-size: 15px;
   display: none;
+  padding-left: 5px;
 }
 
 .ora-msg {
@@ -361,8 +363,170 @@ main {
   cursor: pointer;
 }
 
-
 @media screen and (max-width: 400px) {
+
+  /* sezione profilo */
+  #mio-profilo {
+    height: 40px;
+  }
+
+  #icone-user i, #notifiche i {
+    font-size: 12px;
+  }
+
+  #icone-user i {
+    padding-right: 5px;
+  }
+
+  /* sezione notifiche */
+  #notifiche {
+    height: 40px;
+    padding: 0 5px;
+  }
+
+  #notifiche i {
+    padding: 5px 3px;
+    margin-right: 5px;
+  }
+
+  #notifiche h5 {
+    font-size: 6px;
+  }
+
+  #notifiche a {
+    font-size: 5px;
+  }
+
+  /* sezione search */
+  #cerca-chat {
+    height: 37px;
+  }
+
+  #cerca-chat i {
+    font-size: 12px;
+    padding: 4px 15px 0px 3px;
+  }
+
+  #cerca-chat input {
+    font-size: 6px;
+  }
+
+  /* sezione chat */
+  #sezione-chat {
+    height: calc(100% - 40px - 40px - 37px);
+  }
+
+  .container-chat {
+    height: 40px;
+    padding: 0px 5px;
+  }
+
+  .specifiche-chat p {
+    font-size: 6px;
+  }
+
+  .container-chat h2 {
+    font-size: 9px;
+    padding-bottom: 2px;
+  }
+
+  .container-chat span {
+    font-size: 4px;
+    top: 0;
+    right: 0;
+  }
+
+  /* header chat destra */
+  .header-chat {
+    height: 40px;
+    padding: 0px 5px;
+  }
+
+  .dati-chat img {
+    margin-right: 5px;
+  }
+
+  .dati-chat h2{
+    font-size: 10px;
+  }
+
+  .dati-chat h5 {
+    font-size: 7px;
+  }
+
+  .iconcine-header-chat i {
+    font-size: 12px;
+    padding-right: 5px;
+  }
+
+  .msg-ricevuto, .msg-inviato {
+    padding: 5px;
+  }
+
+  .msg-ricevuto i, .msg-inviato i {
+    font-size: 9px;
+  }
+
+  .msg-ricevuto span:nth-child(1), .msg-inviato span:nth-child(1) {
+    font-size: 10px;
+  }
+
+  .ora-msg {
+    font-size: 5px;
+    bottom: 0px;
+    right: 3px;
+  }
+
+  /* sezione chat destra */
+  .sezione-testo {
+    height: calc(100% - 40px - 40px);
+  }
+
+  .clicca-chat {
+    font-size: 12px;
+  }
+
+  /* dropbox */
+  .drop-cancella {
+    top: 40px;
+    padding: 5px;
+  }
+
+  .drop-cancella-inviato {
+    top: 40px;
+    padding: 5px;
+  }
+
+  .drop-cancella-inviato h6, .drop-cancella h6 {
+    font-size: 10px;
+  }
+
+  .msg-ricevuto i, .msg-inviato i {
+    font-size: 10px;
+  }
+
+  .delete {
+    padding-top: 5px;
+  }
+
+  /* parte scrivi messaggio */
+  .scrivi-msg {
+    height: 40px;
+    padding: 7px 5px;
+  }
+
+  .scrivi-msg input {
+    font-size: 10px;
+  }
+
+  .scrivi-msg i {
+    font-size: 12px;
+  }
+
+}
+
+/* media query a partire da versione tablet */
+@media screen and (min-width: 401px) and (max-width: 600px) {
 
   /* sezione profilo */
   #mio-profilo {
@@ -421,17 +585,17 @@ main {
   }
 
   .specifiche-chat p {
-    font-size: 7px;
+    font-size: 8px;
   }
 
   .container-chat h2 {
-    font-size: 10px;
+    font-size: 11px;
     padding-bottom: 2px;
   }
 
   .container-chat span {
-    font-size: 6px;
-    top: 7px;
+    font-size: 5px;
+    top: 2px;
     right: 2px;
   }
 
@@ -446,11 +610,11 @@ main {
   }
 
   .dati-chat h2{
-    font-size: 10px;
+    font-size: 11px;
   }
 
   .dati-chat h5 {
-    font-size: 7px;
+    font-size: 8px;
   }
 
   .iconcine-header-chat i {
@@ -462,12 +626,16 @@ main {
     padding: 5px;
   }
 
+  .msg-ricevuto i, .msg-inviato i {
+    font-size: 11px;
+  }
+
   .msg-ricevuto span:nth-child(1), .msg-inviato span:nth-child(1) {
     font-size: 12px;
   }
 
   .ora-msg {
-    font-size: 5px;
+    font-size: 6px;
     bottom: 0px;
     right: 3px;
   }
@@ -483,17 +651,17 @@ main {
 
   /* dropbox */
   .drop-cancella {
-    top: 30px;
+    top: 40px;
     padding: 5px;
   }
 
   .drop-cancella-inviato {
-    top: 30px;
+    top: 40px;
     padding: 5px;
   }
 
   .drop-cancella-inviato h6, .drop-cancella h6 {
-    font-size: 10px;
+    font-size: 11px;
   }
 
   .msg-ricevuto i, .msg-inviato i {
@@ -511,7 +679,7 @@ main {
   }
 
   .scrivi-msg input {
-    font-size: 10px;
+    font-size: 12px;
   }
 
   .scrivi-msg i {
@@ -520,35 +688,275 @@ main {
 
 }
 
-/* media query a partire da versione tablet */
-@media screen and (min-width: 401px) and (max-width: 768px) {
+@media screen and (min-width: 601px) and (max-width: 768px) {
 
   /* blocco sinistra */
+  /* parte profilo */
+  #mio-profilo {
+    height: 60px;
+  }
+
+  #icone-user i, #notifiche i {
+    font-size: 18px;
+  }
+
+  #icone-user i {
+    padding-right: 8px;
+  }
+
+  /* sezione notifiche */
+  #notifiche {
+    height: 60px;
+    padding: 0 4%;
+  }
+
+  #notifiche i {
+    margin-right: 5px;
+  }
+
+  #notifiche h5 {
+    font-size: 13px;
+  }
+
+  #notifiche a {
+    font-size: 11px;
+  }
+
+  /* sezione search */
+  #cerca-chat {
+    height: 40px;
+    padding: 5px;
+  }
+
+  #cerca-chat i {
+    font-size: 14px;
+    padding: 8px 16px 0px 2px;
+  }
+
+  #cerca-chat input {
+    font-size: 11px;
+  }
+
+  /* sezione chat sinistra */
+  #sezione-chat {
+    width: 100%;
+    height: calc(100% - 60px - 60px - 40px);
+  }
+
+  .container-chat {
+    height: 60px;
+    padding: 0 4%;
+  }
+
+  .container-chat span {
+    font-size: 9px;
+    top: 5px;
+    right: 5px;
+  }
+
+  .specifiche-chat h2 {
+    font-size: 15px;
+  }
+
+  .specifiche-chat p {
+    font-size: 11px;
+  }
+
+  /* header chat destra */
+  .header-chat {
+    height: 60px;
+    padding: 0 4%;
+  }
+
+  .dati-chat h2 {
+    font-size: 15px;
+  }
+
+  .dati-chat h5 {
+    font-size: 11px;
+  }
+
+  .iconcine-header-chat i {
+    font-size: 18px;
+    padding-right: 8px;
+  }
+
+  /* sezione testo */
+  .sezione-testo {
+    height: calc(100% - 60px - 60px);
+  }
+
+  .msg-ricevuto, .msg-inviato {
+    padding: 10px;
+  }
+
+  .msg-ricevuto i, .msg-inviato i {
+    font-size: 12px;
+  }
+
+  .msg-ricevuto span:nth-child(1), .msg-inviato span:nth-child(1) {
+    font-size: 14px;
+  }
+
+  .ora-msg {
+    font-size: 7px;
+    bottom: 2px;
+    right: 2px;
+  }
+
+  /* dropbox */
+  .drop-cancella {
+    padding: 8px;
+  }
+
+  .drop-cancella h6 {
+    font-size: 13px;
+  }
+
+  .delete {
+    padding-top: 8px;
+  }
+
+  .drop-cancella-inviato {
+    padding: 8px;
+  }
+
+  .drop-cancella-inviato h6 {
+    font-size: 13px;
+  }
+
+  /* scrivi msg */
+  .scrivi-msg {
+    height: 60px;
+    padding: 8px 10px;
+  }
+
+  .scrivi-msg i {
+    font-size: 18px;
+  }
+
+
+}
+
+@media screen and (min-width: 769px) and (max-width: 992px) {
+  /* sezione sinistra */
+  /* profilo */
+  #mio-profilo {
+    height: 65px;
+  }
+
   #icone-user i, #notifiche i {
     font-size: 20px;
   }
 
+  /* notifiche */
+  #notifiche {
+    height: 65px;
+    padding: 0 4%;
+  }
+
   #notifiche h5 {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   #notifiche a {
-    font-size: 12px;
+    font-size: 13px;
   }
 
-  #cerca-chat input {
-    font-size: 12px;
+  /* cerca */
+  #cerca-chat {
+    height: 45px;
+  }
+
+  #cerca-chat i {
+    padding: 6px 22px 0px 5px;
+  }
+
+  /* chat */
+  #sezione-chat {
+    height: calc(100% - 65px - 65px - 45px);
+  }
+
+  .container-chat {
+    height: 70px;
+    padding: 0 4%;
+  }
+
+  .container-chat h2 {
+    font-size: 16px;
   }
 
   .container-chat span {
+    top: 10px;
     font-size: 10px;
   }
 
-  .specifiche-chat p {
-    font-size: 12px;
+  /* sezione destra chat */
+  /* header chat */
+  .header-chat {
+    height: 65px;
+    padding: 0 10px;
   }
 
+  .dati-chat h2 {
+    font-size: 16px;
+  }
 
+  .dati-chat h5 {
+    font-size: 13px;
+  }
+
+  .iconcine-header-chat i {
+    font-size: 20px;
+    padding-right: 12px;
+  }
+
+  /* sezione chat */
+  .sezione-testo {
+    height: calc(100% - 65px - 65px);
+  }
+
+  .msg-ricevuto, .msg-inviato {
+    padding: 13px;
+  }
+
+  .msg-ricevuto i, .msg-inviato i {
+    font-size: 14px;
+  }
+
+  .ora-msg {
+    bottom: 2px;
+    right: 2px;
+  }
+
+  /* dropbox */
+  .drop-cancella {
+    padding: 13px;
+  }
+
+  .drop-cancella h6 {
+    font-size: 13px;
+  }
+
+  .drop-cancella-inviato {
+    padding: 13px;
+  }
+
+  .drop-cancella-inviato h6 {
+    font-size: 13px;
+  }
+
+  .delete {
+    padding-top: 9px;
+  }
+  /* sezione scrivi msg */
+  .scrivi-msg {
+    height: 65px;
+  }
+
+  .scrivi-msg i {
+    font-size: 22px;
+  }
 
 
 }
