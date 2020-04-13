@@ -263,8 +263,13 @@ main {
   display: none;
 }
 
+/* per rendere visibile blocco di chat corrispondente */
 .active {
   display: block;
+}
+
+.attiva {
+  background-color: #E9EBEB;
 }
 
 .msg-ricevuto, .msg-inviato {

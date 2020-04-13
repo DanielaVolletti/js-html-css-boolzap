@@ -141,6 +141,12 @@ $(document).ready(function(){
   // faccio apparire solo chat attiva al click su corrispondente sinistra
   $('.container-chat').click(function() {
 
+    // tolgo classe attiva a tutte le sezioni di chat
+    $('.container-chat').removeClass('attiva');
+
+    // aggiungo background grigio per chat selezionata
+    $(this).addClass('attiva');
+
     // rimuovo "clicca su una chat"
     $('.clicca-chat').hide();
 
