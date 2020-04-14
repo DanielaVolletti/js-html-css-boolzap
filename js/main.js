@@ -202,20 +202,12 @@ $(document).ready(function(){
 
   // dropdown msg ricevuti
   function dropRicevuti() {
-    if(!$(this).parents('.destinatario').find('.drop-cancella').hasClass('drop-attivo')){
-      $(this).parents('.destinatario').find('.drop-cancella').addClass('drop-attivo');
-    } else if($(this).parents('.destinatario').find('.drop-cancella').hasClass('drop-attivo')){
-      $(this).parents('.destinatario').find('.drop-cancella').removeClass('drop-attivo');
-    }
+    $(this).parents('.destinatario').find('.drop-cancella').toggleClass('drop-attivo');
   };
 
   // dropdown msg inviati
   function dropInviati() {
-    if(!$(this).parents('.mittente').find('.drop-cancella-inviato').hasClass('drop-attivo')){
-      $(this).parents('.mittente').find('.drop-cancella-inviato').addClass('drop-attivo');
-    } else if($(this).parents('.mittente').find('.drop-cancella-inviato').hasClass('drop-attivo')){
-      $(this).parents('.mittente').find('.drop-cancella-inviato').removeClass('drop-attivo');
-    }
+  $(this).parents('.mittente').find('.drop-cancella-inviato').toggleClass('drop-attivo');
   };
 
 
