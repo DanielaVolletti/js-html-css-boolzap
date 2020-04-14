@@ -9,8 +9,58 @@ $(document).ready(function(){
   // salvo in una variabile cosa ho scritto nell'input
   var msgScritto = $('.scrivi-msg input');
 
+  // salvo in una variabile input di ricerca della chat
+  var search = $('.contenitore-cerca input');
+
+  // salvo in una variabile i blocchi di chat di sinistra
+  var boxChat = $('.container-chat');
+
+  // salvo in una variabile la sezione di destra contenente i msg scritti
+  var contenitoreTesto = $('.contenitore-testo');
+
+  // cambio il microfono in aereoplano quando sto scrivendo
+  msgScritto.focusin(aereoplanoOn);
+  msgScritto.focusout(aereoplanoOut);
+
   // al click salvo ciò che ha scritto l'utente e lo aggiungo sotto i msg inviati
-  invio.click(function(){
+  invio.click(invioMsg);
+
+  // invio messaggio con tasto invio
+  msgScritto.keyup(invioMsgEnter);
+
+  //gestisco evento ricerca su tastiera
+  search.keyup(ricercaChat);
+
+  // faccio apparire solo chat attiva al click su corrispondente chat sinistra
+  boxChat.click(selezionaChat);
+
+  // mostro dropdown di messaggi ricevuti al click su freccia
+  contenitoreTesto.on("click", ".msg-ricevuto i", dropRicevuti);
+
+  // mostro dropdown di messaggi inviati al click su freccia
+  contenitoreTesto.on("click", ".msg-inviato i", dropInviati);
+
+  // elimino i msg cliccando su cancella chat del dropdown
+  contenitoreTesto.on("click", ".delete", deleteMsg);
+
+
+
+
+  // FUNZIONI
+
+  // icona aereoplano quando scrivo
+  function aereoplanoOn(){
+    invio.removeClass('fa-microphone');
+    invio.addClass('fa-paper-plane');
+  };
+
+  function aereoplanoOut(){
+    invio.removeClass('fa-paper-plane');
+    invio.addClass('fa-microphone');
+  };
+
+  // funzione per invio msg tramite click
+  function invioMsg(){
     // salvo ciò che ha scritto l'utente
     var msgInviato = msgScritto.val();
     console.log(msgInviato);
@@ -27,10 +77,10 @@ $(document).ready(function(){
       contenitoreInviati.append('<div class="destinatario clear"><div class="msg-ricevuto"><span>Ok</span><i class="fas fa-chevron-down"></i><span class="ora-msg">15:40</span></div><div class="drop-cancella"><div class="info"><h6>Info messaggio</h6></div><div class="delete"><h6>Cancella il messaggio</h6></div></div></div>')
     }
 
-  });
+  };
 
-  // invio messaggio con tasto invio
-  msgScritto.keyup(function(enter){
+  // funzione per invio msg con tasto invio
+  function invioMsgEnter(enter){
 
     // salvo ciò che ha scritto l'utente
     var msgInviato = msgScritto.val();
@@ -52,24 +102,12 @@ $(document).ready(function(){
       }
     }
 
-  });
+  };
 
-  // cambio il microfono in aereoplano quando sto scrivendo
-  msgScritto.focusin(function(){
-    invio.removeClass('fa-microphone');
-    invio.addClass('fa-paper-plane');
-  });
-  msgScritto.focusout(function(){
-    invio.removeClass('fa-paper-plane');
-    invio.addClass('fa-microphone');
-  });
-
-
-  //gestisco evento ricerca su tastiera
-  $('.contenitore-cerca input').keyup(function(){
-
+  // funzione per cercare una chat
+  function ricercaChat(){
     // salvo input utente
-    var inputUser = $('.contenitore-cerca input').val();
+    var inputUser = search.val();
 
     // converto caratteri inseriti in minuscoli
     var inputUserMin = inputUser.toLowerCase();
@@ -77,7 +115,7 @@ $(document).ready(function(){
     console.log('input inserito', inputUserMin);
 
     // seleziono tutti i blocchi di contatto e ciclo tra di essi
-    $('.container-chat').each(function() {
+    boxChat.each(function() {
       // creo variabile per trovare gli h2
       var nome = $(this).find('h2');
 
@@ -99,50 +137,13 @@ $(document).ready(function(){
 
     });
 
-  });
+  };
 
-
-/*
-  //gestisco evento ricerca con CLICK su icona ricerca
-  $('.search').click(function(){
-    // salvo input utente
-    var inputUser = $('.contenitore-cerca input').val();
-
-    // converto caratteri inseriti in minuscoli
-    var inputUserMin = inputUser.toLowerCase();
-    console.log(inputUserMin);
-
-    // seleziono tutti i blocchi di contatto e ciclo tra di essi
-    $('.container-chat').each(function() {
-      // creo variabile per trovare gli h2
-      var nome = $(this).find('h2');
-
-      // creo variabile per salvare il testo degli h2
-      var nomeContatto = nome.text();
-
-      // converto i caratteri in minuscoli
-      var nomeContattoMin = nomeContatto.toLowerCase();
-
-      console.log(nomeContattoMin);
-
-      // verifico che il nome degli utenti includa ciò che ha inserito l'utente nella ricerca e quindi rendo visibile
-      if(nomeContattoMin.includes(inputUserMin)){
-        $(this).show();
-      } else {
-        $(this).hide();
-      }
-
-    });
-
-  });
-
-  */
-
-  // faccio apparire solo chat attiva al click su corrispondente chat sinistra
-  $('.container-chat').click(function() {
+  // seleziona chat attiva
+  function selezionaChat() {
 
     // tolgo classe attiva a tutte le sezioni di chat
-    $('.container-chat').removeClass('attiva');
+    boxChat.removeClass('attiva');
 
     // aggiungo background grigio per chat selezionata
     $(this).addClass('attiva');
@@ -178,10 +179,10 @@ $(document).ready(function(){
     console.log('posizione chat' + mioAttributo);
 
     // tolgo classe active a tutte le finestre di chat destra
-    $('.contenitore-testo').removeClass('active');
+    contenitoreTesto.removeClass('active');
 
     // ciclo i contenitori di destra
-    $('.contenitore-testo').each(function() {
+    contenitoreTesto.each(function() {
 
       // this è l'elemento iterato attuale
       var mioAttributoDue = $(this).data('conversazione');
@@ -197,40 +198,36 @@ $(document).ready(function(){
       }
     });
 
-  });
+  };
 
-  // mostro dropdown di messaggi ricevuti al click su freccia
-  $('.contenitore-testo').on("click", ".msg-ricevuto i",
-     function () {
-       if(!$(this).parents('.destinatario').find('.drop-cancella').hasClass('drop-attivo')){
-         $(this).parents('.destinatario').find('.drop-cancella').addClass('drop-attivo');
-       } else if($(this).parents('.destinatario').find('.drop-cancella').hasClass('drop-attivo')){
-         $(this).parents('.destinatario').find('.drop-cancella').removeClass('drop-attivo');
-       }
-     }
-  );
+  // dropdown msg ricevuti
+  function dropRicevuti() {
+    if(!$(this).parents('.destinatario').find('.drop-cancella').hasClass('drop-attivo')){
+      $(this).parents('.destinatario').find('.drop-cancella').addClass('drop-attivo');
+    } else if($(this).parents('.destinatario').find('.drop-cancella').hasClass('drop-attivo')){
+      $(this).parents('.destinatario').find('.drop-cancella').removeClass('drop-attivo');
+    }
+  };
 
-  // mostro dropdown di messaggi inviati al click su freccia
-  $('.contenitore-testo').on("click", ".msg-inviato i",
-     function () {
-       if(!$(this).parents('.mittente').find('.drop-cancella-inviato').hasClass('drop-attivo')){
-         $(this).parents('.mittente').find('.drop-cancella-inviato').addClass('drop-attivo');
-       } else if($(this).parents('.mittente').find('.drop-cancella-inviato').hasClass('drop-attivo')){
-         $(this).parents('.mittente').find('.drop-cancella-inviato').removeClass('drop-attivo');
-       }
-     }
-  );
+  // dropdown msg inviati
+  function dropInviati() {
+    if(!$(this).parents('.mittente').find('.drop-cancella-inviato').hasClass('drop-attivo')){
+      $(this).parents('.mittente').find('.drop-cancella-inviato').addClass('drop-attivo');
+    } else if($(this).parents('.mittente').find('.drop-cancella-inviato').hasClass('drop-attivo')){
+      $(this).parents('.mittente').find('.drop-cancella-inviato').removeClass('drop-attivo');
+    }
+  };
 
 
-  $('.contenitore-testo').on("click", ".delete",
-     function () {
-       if($(this).parents('.destinatario')){
-         $(this).parents('.destinatario').remove();
-       }
-       if($(this).parents('.mittente')){
-         $(this).parents('.mittente').remove();
-       }
-     }
-  );
+  // funzione per eliminare msg
+  function deleteMsg() {
+    if($(this).parents('.destinatario')){
+      $(this).parents('.destinatario').remove();
+    }
+    if($(this).parents('.mittente')){
+      $(this).parents('.mittente').remove();
+    }
+  };
+
 
 });
