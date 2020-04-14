@@ -55,11 +55,11 @@ $(document).ready(function(){
   });
 
   // cambio il microfono in aereoplano quando sto scrivendo
-  $('.scrivi-msg input').focusin(function(){
+  msgScritto.focusin(function(){
     invio.removeClass('fa-microphone');
     invio.addClass('fa-paper-plane');
   });
-  $('.scrivi-msg input').focusout(function(){
+  msgScritto.focusout(function(){
     invio.removeClass('fa-paper-plane');
     invio.addClass('fa-microphone');
   });
@@ -138,7 +138,7 @@ $(document).ready(function(){
 
   */
 
-  // faccio apparire solo chat attiva al click su corrispondente sinistra
+  // faccio apparire solo chat attiva al click su corrispondente chat sinistra
   $('.container-chat').click(function() {
 
     // tolgo classe attiva a tutte le sezioni di chat
@@ -151,29 +151,29 @@ $(document).ready(function(){
     $('.clicca-chat').hide();
 
     // seleziono la chat corrente
-    var elementoSelezionato = $(this);
+    var chatCorrente = $(this);
 
     // seleziono il nome nella sezione di sinistra
-    var nomeChat = elementoSelezionato.find('h2').text();
+    var nomeChat = chatCorrente.find('h2').text();
 
     // associo alla chat di destra il nome della chat su cui clicco
     $('.dati-chat').find('h2').text(nomeChat);
 
     // seleziono l'immagine di sinistra
-    var imgChat = elementoSelezionato.find('img').attr('src');
+    var imgChat = chatCorrente.find('img').attr('src');
     console.log(imgChat);
 
     // associo alla chat di destra l'immagine della chat su cui clicco
     $('.dati-chat').find('img').attr('src', imgChat);
 
     // seleziono il nome nella sezione di sinistra
-    var oraChat = elementoSelezionato.find('span').text();
+    var oraChat = chatCorrente.find('span').text();
 
     // associo alla chat di destra il nome della chat su cui clicco
     $('.dati-chat').find('h5').text('Ultimo accesso oggi alle ' + oraChat);
 
     // recupero valore attributo della chat
-    var mioAttributo = elementoSelezionato.data('conversazione');
+    var mioAttributo = chatCorrente.data('conversazione');
 
     console.log('posizione chat' + mioAttributo);
 
@@ -199,6 +199,7 @@ $(document).ready(function(){
 
   });
 
+  // mostro dropdown di messaggi ricevuti al click su freccia
   $('.contenitore-testo').on("click", ".msg-ricevuto i",
      function () {
        if(!$(this).parents('.destinatario').find('.drop-cancella').hasClass('drop-attivo')){
@@ -209,6 +210,7 @@ $(document).ready(function(){
      }
   );
 
+  // mostro dropdown di messaggi inviati al click su freccia
   $('.contenitore-testo').on("click", ".msg-inviato i",
      function () {
        if(!$(this).parents('.mittente').find('.drop-cancella-inviato').hasClass('drop-attivo')){
@@ -223,10 +225,10 @@ $(document).ready(function(){
   $('.contenitore-testo').on("click", ".delete",
      function () {
        if($(this).parents('.destinatario')){
-         $(this).parents('.destinatario').hide();
+         $(this).parents('.destinatario').remove();
        }
        if($(this).parents('.mittente')){
-         $(this).parents('.mittente').hide();
+         $(this).parents('.mittente').remove();
        }
      }
   );

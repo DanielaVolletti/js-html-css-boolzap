@@ -343,6 +343,11 @@ main {
   font-weight: lighter;
 }
 
+.info:hover h6, .delete:hover h6 {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
 .drop-cancella-inviato {
   background-color: white;
   position: absolute;
@@ -365,7 +370,6 @@ main {
 
 .delete {
   padding-top: 15px;
-  cursor: pointer;
 }
 
 @media screen and (max-width: 400px) {
