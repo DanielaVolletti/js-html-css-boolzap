@@ -49,7 +49,7 @@ main {
 }
 
 /* regole specifiche chat sinistra */
-/* parte fissa */
+/* parte fissa user*/
 #mio-profilo {
   height: 70px;
   width: 100%;
@@ -70,6 +70,7 @@ main {
   padding-right: 15px;
 }
 
+/* parte fissa notifiche */
 #notifiche {
   height: 70px;
   width: 100%;
@@ -98,19 +99,12 @@ main {
   color: #4F7485;
 }
 
+/* parte fissa ricerca chat */
 #cerca-chat {
   height: 50px;
   width: 100%;
   background-color: #FAFAFA;
   padding: 8px;
-}
-
-.contenitore-cerca {
-  border: 1px solid #F5F5F5;
-  height: 100%;
-  display: flex;
-  align-items: center;
-
 }
 
 #cerca-chat i {
@@ -127,6 +121,14 @@ main {
   border: none;
 }
 
+.contenitore-cerca {
+  border: 1px solid #F5F5F5;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* parte blocchi chat */
 #sezione-chat {
   width: 100%;
   height: calc(100% - 70px - 70px - 50px);
@@ -218,36 +220,7 @@ main {
   padding-right: 15px;
 }
 
-.scrivi-msg {
-  height: 70px;
-  width: 100%;
-  background-color: #EAEAEA;
-  display: flex;
-  align-items: center;
-  padding: 10px 20px;
-  justify-content: space-around;
-}
-
-.scrivi-msg i {
-  font-size: 25px;
-  color: #6B7376;
-}
-
-.scrivi-msg input {
-  width: 80%;
-  height: 100%;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-}
-
-.sezione-testo {
-  height: calc(100% - 70px - 70px);
-  overflow-y: auto;
-  background-image: url('../img/wp.jpg');
-  position: relative;
-}
-
+/* scritta iniziale nella sezione di destra prima di click su chat */
 .clicca-chat {
   position: absolute;
   top: 50%;
@@ -256,20 +229,19 @@ main {
   color: #6B7376;
 }
 
+/* sezione centrale messaggi destra */
+.sezione-testo {
+  height: calc(100% - 70px - 70px);
+  overflow-y: auto;
+  background-image: url('../img/wp.jpg');
+  position: relative;
+}
+
 .contenitore-testo {
   width: 90%;
   height: 90%;
   margin: 5%;
   display: none;
-}
-
-/* per rendere visibile blocco di chat corrispondente */
-.active {
-  display: block;
-}
-
-.attiva {
-  background-color: #E9EBEB;
 }
 
 .msg-ricevuto, .msg-inviato {
@@ -327,6 +299,15 @@ main {
   right: 5px;
 }
 
+/* per rendere visibile blocco di chat corrispondente */
+.active {
+  display: block;
+}
+
+.attiva {
+  background-color: #E9EBEB;
+}
+
 /* dropdown cancella */
 .drop-cancella {
   background-color: white;
@@ -372,6 +353,31 @@ main {
   padding-top: 15px;
 }
 
+/* parte in cui si scrive il messaggio in fondo alla sezione destra */
+.scrivi-msg {
+  height: 70px;
+  width: 100%;
+  background-color: #EAEAEA;
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  justify-content: space-around;
+}
+
+.scrivi-msg i {
+  font-size: 25px;
+  color: #6B7376;
+}
+
+.scrivi-msg input {
+  width: 80%;
+  height: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+/* display xs */
 @media screen and (max-width: 400px) {
 
   /* sezione profilo */
@@ -534,7 +540,7 @@ main {
 
 }
 
-/* media query a partire da versione tablet */
+/* display s */
 @media screen and (min-width: 401px) and (max-width: 600px) {
 
   /* sezione profilo */
@@ -697,6 +703,7 @@ main {
 
 }
 
+/* display m */
 @media screen and (min-width: 601px) and (max-width: 768px) {
 
   /* blocco sinistra */
@@ -847,6 +854,7 @@ main {
 
 }
 
+/* display L */
 @media screen and (min-width: 769px) and (max-width: 992px) {
   /* sezione sinistra */
   /* profilo */
