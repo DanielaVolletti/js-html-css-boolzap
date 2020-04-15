@@ -18,6 +18,10 @@ $(document).ready(function(){
   // salvo in una variabile la sezione di destra contenente i msg scritti
   var contenitoreTesto = $('.contenitore-testo');
 
+  // inizializzazione template handlebars msg (in function invioMsg)
+  var source = $('#msg-template').html();
+  var template = Handlebars.compile(source);
+
   // cambio il microfono in aereoplano quando sto scrivendo
   msgScritto.focusin(aereoplanoOn);
   msgScritto.focusout(aereoplanoOut);
@@ -72,10 +76,6 @@ $(document).ready(function(){
     // salvo ciò che ha scritto l'utente
     var msgInviato = msgScritto.val();
     console.log(msgInviato);
-
-    // inizializzazione template handlebars msg (in function invioMsg)
-    var source = $('#msg-template').html();
-    var template = Handlebars.compile(source);
 
     //Handlebars operations
      var contextInv = {"user": "mittente", "msg": "msg-inviato", "msgText": msgInviato, "drop": "drop-cancella-inviato"};
