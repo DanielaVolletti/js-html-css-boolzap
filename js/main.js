@@ -26,7 +26,15 @@ $(document).ready(function(){
   invio.click(invioMsg);
 
   // invio messaggio con tasto invio
-  msgScritto.keyup(invioMsgEnter);
+  msgScritto.keyup(function(event) {
+
+    var code = event.which;
+
+    if(code == 13){
+
+      invioMsg();
+    }
+  });
 
   //gestisco evento ricerca su tastiera
   search.keyup(ricercaChat);
@@ -65,8 +73,18 @@ $(document).ready(function(){
     var msgInviato = msgScritto.val();
     console.log(msgInviato);
 
-    // aggiungo  ciò che ho salvato sotto i msg inviati
-    contenitoreInviati.append('<div class="mittente clear"><div class="msg-inviato"><span>' + msgInviato + '</span><i class="fas fa-chevron-down"></i><span class="ora-msg">15:40</span></div><div class="drop-cancella-inviato"><div class="info"><h6>Info messaggio</h6></div><div class="delete"><h6>Cancella il messaggio</h6></div></div></div>');
+    // inizializzazione template handlebars msg (in function invioMsg)
+    var source = $('#msg-template').html();
+    var template = Handlebars.compile(source);
+
+    //Handlebars operations
+     var contextInv = {"user": "mittente", "msg": "msg-inviato", "msgText": msgInviato, "drop": "drop-cancella-inviato"};
+     var htmlInv = template(contextInv);
+
+     // aggiungo  ciò che ho salvato sotto i msg inviati
+     contenitoreInviati.append(htmlInv);
+
+    // contenitoreInviati.append('<div class="mittente clear"><div class="msg-inviato"><span>' + msgInviato + '</span><i class="fas fa-chevron-down"></i><span class="ora-msg">15:40</span></div><div class="drop-cancella-inviato"><div class="info"><h6>Info messaggio</h6></div><div class="delete"><h6>Cancella il messaggio</h6></div></div></div>');
 
     // pulisco input dopo aver cliccato
     $('.scrivi-msg input').val("");
@@ -74,35 +92,18 @@ $(document).ready(function(){
     // dopo un secondo appare la risposta automatica ok
     setTimeout(risposta, 1000);
     function risposta() {
-      contenitoreInviati.append('<div class="destinatario clear"><div class="msg-ricevuto"><span>Ok</span><i class="fas fa-chevron-down"></i><span class="ora-msg">15:40</span></div><div class="drop-cancella"><div class="info"><h6>Info messaggio</h6></div><div class="delete"><h6>Cancella il messaggio</h6></div></div></div>')
+      //Handlebars operations
+       var contextRic = {"user": "destinatario", "msg": "msg-ricevuto", "msgText": "Ok", "drop": "drop-cancella"};
+       var htmlRic = template(contextRic);
+
+       // aggiungo risposta automatica
+       contenitoreInviati.append(htmlRic);
+      // contenitoreInviati.append('<div class="destinatario clear"><div class="msg-ricevuto"><span>Ok</span><i class="fas fa-chevron-down"></i><span class="ora-msg">15:40</span></div><div class="drop-cancella"><div class="info"><h6>Info messaggio</h6></div><div class="delete"><h6>Cancella il messaggio</h6></div></div></div>');
     }
 
   };
 
-  // funzione per invio msg con tasto invio
-  function invioMsgEnter(enter){
 
-    // salvo ciò che ha scritto l'utente
-    var msgInviato = msgScritto.val();
-    console.log(msgInviato);
-
-    // alla pressione del tasto invio, invio il messaggio
-    var code = enter.keyCode;
-    if(code == 13){
-      // aggiungo  ciò che ho salvato sotto i msg inviati
-      contenitoreInviati.append('<div class="mittente clear"><div class="msg-inviato"><span>' + msgInviato + '</span><i class="fas fa-chevron-down"></i><span class="ora-msg">15:40</span></div><div class="drop-cancella-inviato"><div class="info"><h6>Info messaggio</h6></div><div class="delete"><h6>Cancella il messaggio</h6></div></div></div>');
-
-      // pulisco input dopo aver cliccato
-      $('.scrivi-msg input').val("");
-
-      // dopo un secondo appare la risposta automatica ok
-      setTimeout(risposta, 1000);
-      function risposta() {
-        contenitoreInviati.append('<div class="destinatario clear"><div class="msg-ricevuto"><span>Ok</span><i class="fas fa-chevron-down"></i><span class="ora-msg">15:40</span></div><div class="drop-cancella"><div class="info"><h6>Info messaggio</h6></div><div class="delete"><h6>Cancella il messaggio</h6></div></div></div>')
-      }
-    }
-
-  };
 
   // funzione per cercare una chat
   function ricercaChat(){

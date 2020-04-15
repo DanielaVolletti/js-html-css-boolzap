@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
-    <title>Whatsapp</title>
+    <script src="https://kit.fontawesome.com/d773f239a3.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <title>BoolzApp</title>
   </head>
   <body>
     <!-- sfondo posteriore -->
@@ -439,8 +442,25 @@
       </main>
     </div>
 
-    <script src="https://kit.fontawesome.com/d773f239a3.js" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- TEMPLATE msg -->
+		<script id="msg-template" type="text/x-handlebars-template">
+			<div class="{{user}} clear">
+        <div class="{{msg}}">
+          <span> {{msgText}} </span>
+          <i class="fas fa-chevron-down"></i>
+          <span class="ora-msg">15:40</span>
+        </div>
+        <div class="{{drop}}">
+          <div class="info">
+            <h6>Info messaggio</h6>
+          </div>
+          <div class="delete">
+            <h6>Cancella il messaggio</h6>
+          </div>
+        </div>
+      </div>
+		</script>
+
     <script src="js/main.js"></script>
   </body>
 </html>
